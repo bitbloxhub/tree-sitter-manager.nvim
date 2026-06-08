@@ -21,6 +21,7 @@ function M.setup(opts)
     state.effective_repos = vim.tbl_deep_extend("force", vim.deepcopy(state.base_repos), state.cfg.languages)
     state.languages = vim.tbl_keys(state.effective_repos)
     table.sort(state.languages)
+    state.filetypes = vim.tbl_deep_extend("force", vim.deepcopy(state.filetypes), state.cfg.filetypes)
 
     vim.fn.mkdir(state.cfg.parser_dir, "p")
     vim.fn.mkdir(state.cfg.query_dir, "p")

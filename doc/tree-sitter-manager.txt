@@ -232,6 +232,12 @@ Each entry has the following shape: >lua
     },
   },
 <
+Additionally, `filetypes` option can be used to define a custom mapping between
+the language and its filetypes: >lua
+  filetypes = {
+    <lang> = { <ft1>, <ft2>, <ft3> },
+  }
+<
 
 Override a built-in with a fork: >lua
   require("tree-sitter-manager").setup({
@@ -257,6 +263,9 @@ Add a new language: >lua
           use_repo_queries = true,
         },
       },
+    },
+    filetypes = {
+      mylang = { "ml" },
     },
   })
 <

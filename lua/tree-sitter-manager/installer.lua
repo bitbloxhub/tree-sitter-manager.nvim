@@ -56,6 +56,10 @@ local function install(lang, callback)
     local tmpdir = vim.fn.tempname()
     local build_path = vim.fs.joinpath(tmpdir, info.location)
 
+    -- unset GIT_WORK_TREE
+    local GIT_WORK_TREE = vim.env.GIT_WORK_TREE
+    vim.env.GIT_WORK_TREE = nil
+
     if info.revision and (major < 2 or major == 2 and minor < 49) then
         -- Git pre 2.49.0 doesn't have --revision flag
         out = util.run({ "git", "init", tmpdir })
@@ -96,6 +100,9 @@ local function install(lang, callback)
             end
         )
     end
+
+    -- reset GIT_WORK_TREE
+    vim.env.GIT_WORK_TREE = GIT_WORK_TREE
 end
 
 function M.remove(languages)

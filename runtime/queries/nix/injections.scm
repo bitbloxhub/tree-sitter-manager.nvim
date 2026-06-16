@@ -39,7 +39,9 @@
 
 (binding
   attrpath: (attrpath
-    (identifier) @_path)
+    .
+    (identifier) @_path
+    .)
   expression: [
     (string_expression
       ((string_fragment) @injection.content
@@ -53,7 +55,9 @@
 
 (binding
   attrpath: (attrpath
-    (identifier) @_path)
+    .
+    (identifier) @_path
+    .)
   expression: [
     (string_expression
       ((string_fragment) @injection.content
@@ -67,7 +71,9 @@
 
 (binding
   attrpath: (attrpath
-    (identifier) @_path)
+    .
+    (identifier) @_path
+    .)
   expression: [
     (string_expression
       ((string_fragment) @injection.content
